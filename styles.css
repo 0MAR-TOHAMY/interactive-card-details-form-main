@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+:root{
+    --Red-input-errors: #ff5252;
+    --White: #ffffff;
+    --Light-grayish-violet: #dedddf;
+    --Dark-grayish-violet: #8e8593;
+    --Very-dark-violet: #21092f;
+}
+
+html, body{
+    font-family: 'Space Grotesk', sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color: var(--White);
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: center;
+
+    .form-side{
+        width: 70%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        form{
+            width: 100%;
+            max-width: 400px;
+            height: 50%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: center;
+
+            input{
+                width: 95%;
+                margin-bottom: 20px;
+                padding: 13px 10px;
+                border: 1.5px solid var(--Light-grayish-violet);
+                outline: none;
+                font-size: 16px;
+                border-radius: 5px;
+                transition: border-color 0.3s ease;
+            }
+
+            input:focus{
+                border-color: #600594;
+            }
+
+            input.touched:valid {
+                border-color: #600594;
+            }
+
+            input.touched:invalid {
+                border-color: var(--Red-input-errors);
+            }
+
+            label{
+                font-size: 16px;
+                color: var(--Very-dark-violet);
+                margin-bottom: 10px;
+            }
+            button{
+                width: 100%;
+                padding: 15px 10px;
+                background-color: var(--Very-dark-violet);
+                color: var(--White);
+                border: none;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+                cursor: pointer;
+                outline: none;
+                &:hover{
+                    background-color: #340e49;
+                }
+            }
+
+            .bottom{
+                margin-top: 5px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+
+                .title{
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: start;
+                    gap: 130px;
+                }
+                .inputs{
+                    display: flex;
+                    align-items: start;
+                    justify-content: center;
+                    gap: 10px;
+                }
+            }
+        }
+    }
+
+    .pattern-side{
+        width: 30%;
+        height: 100%;
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+.card-preview{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-110%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 600px;
+    gap: 30px;
+
+    .card-front{
+        width: 390px;
+        height: 190px;
+        background: url("./images/bg-card-front.png");
+        background-size: cover;
+        background-position: center;
+        border-radius: 10px;
+        align-self: start;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+
+        p{
+            color: var(--White);
+            font-size: 30px;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        .down{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--White);
+        }
+    }
+
+    .card-back{
+        width: 350px;
+        height: 250px;
+        background: url("./images/bg-card-back.png");
+        background-size: cover;
+        background-position: center;
+        border-radius: 10px;
+        align-self: end;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        padding: 0px 50px;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+
+        p{
+            color: var(--White);
+            font-size: 20px;
+            letter-spacing: 2px;
+        }
+    }
+}
+
+::placeholder {
+    color: var(--Dark-grayish-violet);
+    opacity: 1;
+}
+
+::-ms-input-placeholder {
+    color: var(--Dark-grayish-violet);
+}

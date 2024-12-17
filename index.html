@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive card details form</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="form-side">
+      <form onsubmit="event.preventDefault();">
+        <label for="card-holder-name">CARDHOLDER NAME</label>
+        <input 
+            type="text" 
+            id="card-holder-name" 
+            name="card-holder-name" 
+            placeholder="e.g. Jane Appleseed" 
+            required 
+            pattern="[a-zA-Z\s]+"
+            title="Name can only contain letters and spaces"
+        >
+        
+        <label for="card-number">CARD NUMBER</label>
+        <input 
+            type="text" 
+            id="card-number" 
+            name="card-number" 
+            placeholder="e.g. 0000 0000 0000 0000" 
+            required
+            pattern="\d{4}\s\d{4}\s\d{4}\s\d{4}" 
+            title="Card number must be in the format 0000 0000 0000 0000"
+        >
+
+        <div class="bottom">
+          <div class="title">
+            <label for="expiry-date-m">EXP. DATE (MM/YY)</label>
+            <label for="cvc">CVC</label>
+          </div>
+          <div class="inputs">
+            <input 
+                type="text" 
+                id="expiry-date-m" 
+                name="expiry-date-m" 
+                placeholder="MM" 
+                required 
+                pattern="(0[1-9]|1[0-2])" 
+                title="Enter a valid month (01-12)"
+            >
+            <input 
+                type="text" 
+                id="expiry-date-y" 
+                name="expiry-date-y" 
+                placeholder="YY" 
+                required 
+                pattern="\d{2}" 
+                title="Enter a valid year (e.g., 24)"
+            >
+            <input 
+                type="text" 
+                id="cvc" 
+                name="cvc" 
+                placeholder="e.g. 123" 
+                required 
+                pattern="\d{3}" 
+                title="CVC must be a 3-digit number"
+            >
+          </div>
+        </div>
+        <button type="submit">Confirm</button>
+    </form>
+    </div>
+    <div class="pattern-side">
+      <img src="images/bg-main-desktop.png" alt="pattern">
+    </div>
+    <div class="card-preview">
+      <div class="card-front">
+        <div class="data">
+          <img src="images/card-logo.svg" alt="logo">
+          <p>0000 0000 0000 0000</p>
+          <div class="down">
+            <span>Jane Appleseed</span>
+            <span>00/00</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-back">
+          <p>000</p>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
